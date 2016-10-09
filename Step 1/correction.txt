@@ -1,0 +1,7 @@
+ Es ist sinnvoll davon auszugehen, dass zu jedem Verbrechen automatisch ein Fall ([1,1]) zugeordnet wird. 
+    Vor allem da Polizisten Fälle bearbeiten und nicht Verbrechen.
+*   Die Entität Bezirk hat kein Attribut (zum Beispiel einen Namen).
+*   Ein Polizist kann bei dir nicht mehrmals (zu unterschiedlichen Zeiten) in der gleichen Behörde 
+    arbeiten. Eine Entität Zeitraum würde das Problem lösen.
+
+Insgesamt ein sehr schönes Modell. Damit hast du den ersten Teil bestanden. Beachte die obigen Punkte aber bitte vor dem nächsten Teil.

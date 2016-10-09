@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<VBox alignment="CENTER" fillWidth="false" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crime.Controller">
+   <children>
+      <ListView fx:id="e_entities" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="400.0" VBox.vgrow="NEVER" onMouseClicked="#showEntity">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Personen" />
+                <String fx:value="Polizisten" />
+                <String fx:value="Verdächtiger" />
+                <String fx:value="Opfer" />
+                <String fx:value="Fälle" />
+                <String fx:value="Arten" />
+                <String fx:value="Bezirke" />
+                <String fx:value="Verbrechen" />
+                <String fx:value="Notizen" />
+                <String fx:value="Indizien" />
+                <String fx:value="Behörden" />
+                <String fx:value="Zeitraum" />
+                <String fx:value="PolizistFall" />
+                <String fx:value="BezirkBezirk" />
+            </FXCollections>
+        </items>
+      </ListView>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

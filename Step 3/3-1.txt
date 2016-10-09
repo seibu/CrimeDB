@@ -1,0 +1,169 @@
+﻿3. Aufgabenteil
+
+Relationenmodell
+
+Personen([pk]PersNr, Name, Nationalität, Geschlecht, Geburtsdatum, Todesdatum)
+Polizisten([pk/fk]PersNr, Dienstgrad)
+Fälle([pk]ID, Name, Eröffnungsdatum, Enddatum)
+Verbrechen([pk]ID, Datum, Name, [fk]Fälle.ID, [fk]Arten.ID, [fk]Bezirke.ID)
+Arten([pk]ID, Name, Beschreibung)
+Bezirke([pk]ID, Name)
+Notizen([pk]ID, Datum, Text, [fk]Polizisten.PersNr, [fk]Fälle.ID)
+Indizien([pk]ID, Bild, Anlagedatum, Text, [fk]Polizisten.PersNr, [fk]Fälle.ID)
+Behörden([pk]ID, Name, Typ, [fk]Bezirke.ID)
+Zeitraum([pk]ID, von, bis, [fk]Polizisten.PersNr, [fk]Behörden.ID)
+
+Verdächtiger([pk]([fk]Personen.PersNr, [fk]Verbrechen.ID), überführt)
+Opfer([pk]([fk]Personen.PersNr, [fk]Verbrechen.ID))
+arbeitet an([pk]([fk]Polizisten.PersNr, [fk]Fälle.ID), von, bis)
+liegt in([pk/fk]Bezirke.ID, [fk]Bezirke.ID ̅[Oberbezirk])
+
+
+CREATE Statements
+
+create table Personen(
+      PersNr integer primary key autoincrement,
+      Name varchar(255) not null,
+      Vorname varchar(255) not null,
+      Nationalität varchar(255) not null,
+      Geschlecht varchar(255) not null check(Geschlecht=‘männlich‘ or Geschlecht=‘weiblich‘),
+      Geburtsdatum date not null,
+      Todesdatum date);
+
+Create table Polizisten(
+	PersNr integer primary key REFERENCES Personen(PersNr),
+	Dienstgrad varchar(255) not null);
+
+Create table Fälle(
+	ID integer primary key autoincrement,
+	Name varchar(255) not null,
+	Eröffnungsdatum date not null,
+	Enddatum date);
+
+Create table Arten(
+	ID integer primary key autoincrement,
+	Name varchar(255) not null,
+	Beschreibung text not null);
+
+Create table Bezirke(
+	ID integer primary key autoincrement,
+	Name varchar(255) not null);
+
+Create table Verbrechen(
+	ID integer primary key autoincrement,
+	Name varchar(255) not null,
+	Datum date not null,
+	Fall integer not null REFERENCES Fälle(ID),
+	Art integer not null REFERENCES Arten(ID),
+	Bezirk integer not null REFERENCES Bezirke(ID));
+
+Create table Notizen(
+	ID integer primary key autoincrement,
+	Datum date not null,
+	Text text not null,
+	Polizist integer not null REFERENCES Polizisten(PersNr),
+	Fall integer not null REFERENCES Fälle(ID));
+	
+Create table Indizien(
+	ID integer primary key autoincrement,
+	Anlagedatum date not null,
+	Text text,
+	Bild varchar(255) not null,
+	Polizist integer not null REFERENCES Polizisten(PersNr),
+	Fall integer not null REFERENCES Fälle(ID));
+
+Create table Behörden(
+	ID integer primary key autoincrement,
+	Name varchar(255) not null,
+	Typ varchar(255) not null,
+	Bezirk integer not null REFERENCES Bezirke(ID));
+
+Create table Zeitraum(
+	ID integer primary key autoincrement,
+	von date not null,
+	bis date,
+	Polizist integer not null REFERENCES Polizisten(PersNr),
+	Behörde integer not null REFERENCES Behörden(ID));
+
+Create table Verdächtiger(
+	Person integer REFERENCES Personen(PersNr),
+	Verbrechen integer REFERENCES Verbrechen(ID),
+	überführt int not null,
+	primary key (Person, Verbrechen));
+
+Create table Opfer(
+	Person integer REFERENCES Personen(PersNr),
+	Verbrechen integer REFERENCES Verbrechen(ID),
+	primary key (Person, Verbrechen));
+
+create table arbeitet_an(
+	Polizist integer REFERENCES Polizisten(PersNr),
+	Fall integer REFERENCES Fälle(ID),
+	von date not null,
+	bis date,
+	primary key (Polizist, Fall));
+
+create table liegt_in(
+	Bezirk integer primary key REFERENCES Bezirke(ID),
+	Oberbezirk integer REFERENCES Bezirke(ID));
+
+INSERT Statements
+
+Insert into Personen values (null, ‚Kuck‘, ‚Hans‘, ‚deutsch‘, ‚männlich‘, ‚20.06.1978‘, null);
+Insert into Personen values (null, ‚Schneider‘, ‚Anna‘, ‚deutsch‘, ‚weiblich‘, ‚05.12.1985‘, null);
+Insert into Personen values (null, ‚Schneider‘, ‚Mark‘, ‚deutsch‘, ‚männlich‘, ‚18.09.1990‘, ‚26.04.2014‘);
+Insert into Personen values (null, ‚Sarbajev‘, ‚Vitalij‘, ‚russisch‘, ‚männlich‘, ‚22.07.1974‘, null);
+Insert into Personen values (null, ‚Sneijder‘, ‚Antonia‘, ‚finnisch‘, ‚weiblich‘, ‚07.05.1988‘, null);
+
+Insert into Polizisten values (1, ‚Polizeioberkommissar‘);
+Insert into Polizisten values (5, ‚Polizeimeister-Anwärter‘);
+
+Insert into Fälle values (null, ‚Mord auf Ludwigstraße‘, ‚26.04.2014‘, ‚15.01.2015‘);
+Insert into Fälle values (null, ‚Kühllasterkiller‘, ‚05.04.2005‘, ‚12.04.2010‘);
+Insert into Fälle values (null, ‚Fahrerflucht mit Körperverletzung‘, ‚22.08.2015‘, null);
+
+Insert into Arten values (null, ‚Mord‘, ‚Tötung eines Menschen.‘);
+Insert into Arten values (null, ‚Fahrerflucht mit Körperverletzung‘, ‚Flucht mit einem Fahrzeug von einen Tatort bei dem Menschen zu Schaden gekommen sind.‘);
+
+Insert into Bezirke values (null, ‚Düsseldorf‘);
+Insert into Bezirke values (null, ‚Bilk‘);
+Insert into Bezirke values (null, ‚Medienhafen‘);
+Insert into Bezirke values (null, ‚Universitätsklinikum‘);
+
+Insert into Verbrechen values (null, ‚Mord auf Ludwigstraße‘, ‚26.04.2014‘, 1, 1, 2);
+Insert into Verbrechen values (null, ‚Mord 1‘, ‚05.04.2005‘, 2, 1, 4);
+Insert into Verbrechen values (null, ‚Mord 2‘, ‚19.04.2005‘, 2, 1, 3);
+Insert into Verbrechen values (null, ‚Fahrerflucht mit Körperverletzung‘, ‚22.08.2015‘, 3, 2, 2);
+
+Insert into Notizen values (null, ‚07.04.2005‘, ‚Fingerabdrücke auf Kühllastergriff gefunden‘, 1, 2);
+Insert into Notizen values (null, ‚13.04.2005‘, ‚Fingerabdrücke konnten nicht zugeordnet werden‘, 1, 2);
+Insert into Notizen values (null, ‚22.08.2015‘, ‚Tatort auf DNA Spuren überprüfen ‘, 5, 2);
+
+Insert into Indizien values (null, ‚Spurensicherung.jpeg‘, ‚23.08.2015‘, ‚Bilder der Spurensicherung‘, 5, 3);
+Insert into Indizien values (null, ‚Kieferabdruck.jpeg‘, ‚05.04.2005‘, ‚Kieferabdruck des Toten‘, 1, 2);
+
+Insert into Behörden values (null, ‚Polizeirevier Düsseldorf‘, ‚Polizeirevier‘, 1);
+Insert into Behörden values (null, ‚Polizeiwache Bilk‘, ‚Polizeiwache‘, 2);
+
+Insert into Zeitraum values (null, ‚20.03.2004‘, ‚19.03.2010‘, 1, 1);
+Insert into Zeitraum values (null, ‚20.03.2010‘, ‚30.04.2012‘, 1, 2);
+Insert into Zeitraum values (null, ‚01.05.2012‘, null, 1, 1);
+Insert into Zeitraum values (null, ‚01.08.2013‘, null, 1, 2);
+Insert into Zeitraum values (null, ‚01.01.2007‘, null, 5, 2);
+
+Insert into Verdächtiger values (2, 1, 1);
+Insert into Verdächtiger values(3, 2, 0);
+Insert into Verdächtiger values(3, 3, 0);
+
+Insert into Opfer values (4, 1);
+Insert into Opfer values (3, 4);
+Insert into Opfer values (2, 2);
+
+Insert into arbeitet_an values (1, 1, ‚26.04.2014‘, ‚15.01.2015‘);
+Insert into arbeitet_an values (1, 2, ‚05.04.2005‘, ‚12.04.2010‘);
+Insert into arbeitet_an values (5, 2, ‚01.01.2007‘, ‚15.01.2010‘);
+Insert into arbeitet_an values (5, 3, ‚22.08.2015‘, null);
+
+Insert into liegt_in values (2, 1);
+Insert into liegt_in values (3, 1);
+Insert into liegt_in values (4, 2);

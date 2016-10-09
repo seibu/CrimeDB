@@ -1,0 +1,14 @@
+    Die Fremdschlüsselmarkierung der PersID in Polizisten fehlt in 
+    der initialen Überführung. Nach der Verschmelzung ist er aber 
+    richtig markiert.
+*   Der Primärschlüssel von "liegt in" ist falsch. Da dies eine 1:N 
+    Beziehung ist, stellt nur der Unterbezirk den Primärschlüssel. 
+    Nach der Verschmelzung hast du den richtigen Schlüssel genutzt.
+
+Sehr gut. Damit hast du diesen Teil bestanden.
+
+Notation:
+    Anmerkung
+*   Leichter Fehler
+**  Mittlerer Fehler
+*** Schwerer Fehler

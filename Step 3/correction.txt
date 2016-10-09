@@ -1,0 +1,9 @@
+*   Du hast öfter statt einem ' ein , oder ‘.
+
+Damit hast du diesen Teil des Projekts bestanden.
+
+Notation:
+    Anmerkung
+*   Leichter Fehler
+**  Mittlerer Fehler
+*** Schwerer Fehler

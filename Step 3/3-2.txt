@@ -1,0 +1,27 @@
+3. Aufgabenteil
+
+SELECT Statements
+
+1)
+SELECT DISTINCT Name, Vorname
+FROM Personen pe
+INNER JOIN Polizisten po ON pe.PersNr = po.PersNr
+INNER JOIN Zeitraum z ON pe.PersNr = z.Polizist
+GROUP BY z.Polizist, z.Behörde
+HAVING count(z.Behörde) = 2;
+
+2)
+SELECT DISTINCT f.*
+FROM Fälle f
+INNER JOIN Verbrechen v ON f.ID = v.Fall
+INNER JOIN Arten a ON a.ID = v.Art
+WHERE a.Name = ‚Mord‘;
+
+3)
+SELECT DISTINCT b.*
+FROM Bezirke b
+INNER JOIN Verbrechen v ON v.Bezirk = b.ID
+GROUP BY v.Bezirk
+HAVING count(v.Bezirk) > 1;
+	
+

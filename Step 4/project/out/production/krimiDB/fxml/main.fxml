@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crime.Controller">
+   <children>
+      <Button fx:id="erm_btn" mnemonicParsing="false" onAction="#showErm" text="ER-Modell">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="sE_btn" mnemonicParsing="false" onAction="#showEntities" text="Entitäten &amp; Relationen">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label text="Personensuche">
+         <VBox.margin>
+            <Insets bottom="10.0" top="25.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <TextField fx:id="s_tb" onAction="#showSearch">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TextField>
+            <ComboBox fx:id="s_entity" prefWidth="150.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Polizisten" />
+                     <String fx:value="Opfer" />
+                     <String fx:value="Verdächtiger" />
+                  </FXCollections>
+               </items>
+               <value>
+                  <String fx:value="Polizisten" />
+               </value>
+            </ComboBox>
+         </children>
+      </HBox>
+      <Button fx:id="s_btn" mnemonicParsing="false" onAction="#showSearch" text="Suchen">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

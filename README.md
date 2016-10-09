@@ -1,6 +1,6 @@
 Allgemein Information
 -------------------------------
-Kriminaldatenbank ist ein System zur Verwaltung von Kriminalfällen.
+Kriminaldatenbank ist ein System zur Verwaltung von KriminalfÃ¤llen.
 Alle Informationen werden in einer SQLite Datenbank gespeichert.
 
 Das Programm wurde von
@@ -17,69 +17,69 @@ Das Programm wurde unter Windows 7/10 getestet.
 
 Benutzung
 -------------------------------
-Jede Ansicht der Kriminaldatenbank verfügt über zwei Buttons oben rechts.
-- Start: ruft die Startansicht auf, so gelangen Sie zurück zum Anfang
-- Zurück: ruft die vorherige Ansicht auf. Es ist nur möglich zwischen der
+Jede Ansicht der Kriminaldatenbank verfÃ¼gt Ã¼ber zwei Buttons oben rechts.
+- Start: ruft die Startansicht auf, so gelangen Sie zurÃ¼ck zum Anfang
+- ZurÃ¼ck: ruft die vorherige Ansicht auf. Es ist nur mÃ¶glich zwischen der
           aktuellen und vorherigen Ansicht zu wechseln. Sie gelagen so nicht
           wieder zum Anfang.
 
-Nach dem Ausführen befinden Sie sich in der Startansicht.
-Hier haben 3 Möglichkeiten
+Nach dem AusfÃ¼hren befinden Sie sich in der Startansicht.
+Hier haben 3 MÃ¶glichkeiten
 - ER-Modell
- -- Zeigt das zugrundeliegende ER-Modell an
-- Entitäten & Relationen
- -- zeigt eine Übersicht über alle Entitäten und Relationen der Kriminaldatenbank
+	- Zeigt das zugrundeliegende ER-Modell an
+- EntitÃ¤ten & Relationen
+	- zeigt eine Ãœbersicht Ã¼ber alle EntitÃ¤ten und Relationen der Kriminaldatenbank
 - Personensuche
- -- Textfeld zur Eingabe einer beliebgen Zeichenfolge
- -- Combobox zur Auswahl der zu suchenden Person
-  --- Polizisten
-  --- Opfer
-  --- Verdächtiger
- -- Button zum Ausführen der Suche
- -- Es werden die Felder Name und Vorname mit der eingegeben Zeichenfolge überprüft
+	- Textfeld zur Eingabe einer beliebgen Zeichenfolge
+	- Combobox zur Auswahl der zu suchenden Person
+		- Polizisten
+		- Opfer
+		- VerdÃ¤chtiger
+	- Button zum AusfÃ¼hren der Suche
+	- Es werden die Felder Name und Vorname mit der eingegeben Zeichenfolge Ã¼berprÃ¼ft
 
-Nach dem Klick auf "Entitäten & Relationen" befinden Sie sich in der Entitäts-Übersicht.
-Hier können Sie per Klick auf einen Eintrag der Liste die entsprechende Entität/Beziehung
+Nach dem Klick auf "EntitÃ¤ten & Relationen" befinden Sie sich in der EntitÃ¤ts-Ãœbersicht.
+Hier kÃ¶nnen Sie per Klick auf einen Eintrag der Liste die entsprechende EntitÃ¤t/Beziehung
 aufrufen.
 
-In der Entitäts-Ansicht erhalten Sie alle Datensätze der jeweiligen Entität.
-Sie haben hier die Möglichkeit Einträge zu
-- ändern
- -- klicken Sie dazu einfach in die jeweilige Zelle Sie erhalten dann ein Textfeld und können
-    den Wert ändern. Bestätigen Sie ihre Eingabe durch das Drücken der "Enter"-Taste. Durch 
-    drücken der "ESC"-Taste beenden Sie die Bearbeitung ohne den Wert zu ändern. Nach drücken
-    der "Enter"-Taste wird der eingebene Wert auf Gültigkeit überprüft und sofern dies erfolgreich
-    war geändert.
-- löschen
- -- wählen Sie den zu löschenden Datensatz einfach per Mausklick aus und drücken Sie dann auf den 
-    Button "Löschen". Der ausgewählte Datensatz wird dann entfernt.
-- einfügen
- -- durch einen Klick auf "Einfügen" wird ein neuer Dummy-Datensatz erstellt mit allen notwendigen
-    Werten. Sie können diesen dann nach belieben ändern.
- -- Spezialfall "Indizien": für Indizien ist es zusätzlich möglich ein Bild auszuwählen. Dazu finden
-    Sie neben dem Label "Indizien" einen Button "Bild auswählen" dieser öffnet einen Datei-Dialog. In
-    diesem können Sie ein Bild auswählen. Akzeptierte Dateiformate sind png, jpeg, gif. Nachdem Sie ein
-    Bild erfolgreich ausgewählt haben wird Ihnen der Dateiname des Bildes neben dem Button angezeigt.
-    Drücken Sie nun auf den Button "Einfügen" wird ein neuer Dummy-Datensatz mit dem entsprechenden Bild
+In der EntitÃ¤ts-Ansicht erhalten Sie alle DatensÃ¤tze der jeweiligen EntitÃ¤t.
+Sie haben hier die MÃ¶glichkeit EintrÃ¤ge zu
+- Ã¤ndern
+	- klicken Sie dazu einfach in die jeweilige Zelle Sie erhalten dann ein Textfeld und kÃ¶nnen
+    den Wert Ã¤ndern. BestÃ¤tigen Sie ihre Eingabe durch das DrÃ¼cken der "Enter"-Taste. Durch 
+    drÃ¼cken der "ESC"-Taste beenden Sie die Bearbeitung ohne den Wert zu Ã¤ndern. Nach drÃ¼cken
+    der "Enter"-Taste wird der eingebene Wert auf GÃ¼ltigkeit Ã¼berprÃ¼ft und sofern dies erfolgreich
+    war geÃ¤ndert.
+- lÃ¶schen
+	- wÃ¤hlen Sie den zu lÃ¶schenden Datensatz einfach per Mausklick aus und drÃ¼cken Sie dann auf den 
+    Button "LÃ¶schen". Der ausgewÃ¤hlte Datensatz wird dann entfernt.
+- einfÃ¼gen
+	- durch einen Klick auf "EinfÃ¼gen" wird ein neuer Dummy-Datensatz erstellt mit allen notwendigen
+    Werten. Sie kÃ¶nnen diesen dann nach belieben Ã¤ndern.
+	- Spezialfall "Indizien": fÃ¼r Indizien ist es zusÃ¤tzlich mÃ¶glich ein Bild auszuwÃ¤hlen. Dazu finden
+    Sie neben dem Label "Indizien" einen Button "Bild auswÃ¤hlen" dieser Ã¶ffnet einen Datei-Dialog. In
+    diesem kÃ¶nnen Sie ein Bild auswÃ¤hlen. Akzeptierte Dateiformate sind png, jpeg, gif. Nachdem Sie ein
+    Bild erfolgreich ausgewÃ¤hlt haben wird Ihnen der Dateiname des Bildes neben dem Button angezeigt.
+    DrÃ¼cken Sie nun auf den Button "EinfÃ¼gen" wird ein neuer Dummy-Datensatz mit dem entsprechenden Bild
     erzeugt und dieses im Verzeichnis "images" des Programms gespeichert. Sollte ein Bild mit gleichen
-    Namen bereits vorhanden sein, so wird das einzufügende Bild umbenannt.
+    Namen bereits vorhanden sein, so wird das einzufÃ¼gende Bild umbenannt.
 - anzeigen
- -- durch einen Klick auf den Button "Anzeigen" wird für den ausgewählten Datensatz die Detailansicht aufgerufen.
+	- durch einen Klick auf den Button "Anzeigen" wird fÃ¼r den ausgewÃ¤hlten Datensatz die Detailansicht aufgerufen.
 
-Die Detailansicht eines Datensatzes zeigt alle entsprechenden Werte für die direkt in Beziehung stehenden
-Entitäten/Beziehungen an.
-- Für Indizien wird hier zusätzlich das Bild angezeigt
-- Sie haben auch hier die Möglichkeit Einträge zu
- -- ändern
- -- löschen
- -- bearbeiten
- -- einfügen
-  --- zum Einfügen müssen Sie hier zuerst die gewünschte Entität auswählen, indem Sie einen Klick auf die
-      zugehörige Tabelle machen.
+Die Detailansicht eines Datensatzes zeigt alle entsprechenden Werte fÃ¼r die direkt in Beziehung stehenden
+EntitÃ¤ten/Beziehungen an.
+- FÃ¼r Indizien wird hier zusÃ¤tzlich das Bild angezeigt
+- Sie haben auch hier die MÃ¶glichkeit EintrÃ¤ge zu
+	- Ã¤ndern
+	- lÃ¶schen
+	- bearbeiten
+	- einfÃ¼gen
+		- zum EinfÃ¼gen mÃ¼ssen Sie hier zuerst die gewÃ¼nschte EntitÃ¤t auswÃ¤hlen, indem Sie einen Klick auf die
+      zugehÃ¶rige Tabelle machen.
 
-In der Suchansicht erhalten Sie die Personendaten zu allen gefunden Personen. In dieser Ansicht können die
-Einträge nicht bearbeitet werden. Durch Auswahl eines Datensatzes und betätigen des "Anzeige"-Buttons
-gelangen Sie in die Detailansicht, in welcher Sie ändern vornehmen können.
+In der Suchansicht erhalten Sie die Personendaten zu allen gefunden Personen. In dieser Ansicht kÃ¶nnen die
+EintrÃ¤ge nicht bearbeitet werden. Durch Auswahl eines Datensatzes und betÃ¤tigen des "Anzeige"-Buttons
+gelangen Sie in die Detailansicht, in welcher Sie Ã¤ndern vornehmen kÃ¶nnen.
 
 
 FAQ
@@ -87,11 +87,11 @@ FAQ
 Q: Das Programm startet nicht.
 A: Stellen Sie sicher, dass sie Java 8 korrekt installiert haben und die aktuellste Version verwenden.
 
-Q: Das Bild wurde trotz löschen des Datensatzes nicht gelöscht.
-A: Bilder von Indizen werden genau dann gelöscht, wenn der letzte Datensatz, der dieses Bild nutzt gelöscht wird.
+Q: Das Bild wurde trotz lÃ¶schen des Datensatzes nicht gelÃ¶scht.
+A: Bilder von Indizen werden genau dann gelÃ¶scht, wenn der letzte Datensatz, der dieses Bild nutzt gelÃ¶scht wird.
 
-Q: Wie kann ich nachträglich ein Bild für einen Indiz ändern?
-A: Dies ist ohne Umwege nicht möglich, da ein Indiz möglichst immer mit Bild angelegt werden sollte. Als Workaround
-   können Sie folgendes tun: Ein Bild auswählen, ein Indiz einfügen, den Wert aus Bild des neuen Indiz kopieren und
-   bei dem gewünschten Datensatz einfügen. Nun können Sie den "Dummy" wieder entfernen und das Bild wurde im System
-   hinterlegt und mit dem gewünschten Datensatz verknüpft.
+Q: Wie kann ich nachtrÃ¤glich ein Bild fÃ¼r einen Indiz Ã¤ndern?
+A: Dies ist ohne Umwege nicht mÃ¶glich, da ein Indiz mÃ¶glichst immer mit Bild angelegt werden sollte. Als Workaround
+   kÃ¶nnen Sie folgendes tun: Ein Bild auswÃ¤hlen, ein Indiz einfÃ¼gen, den Wert aus Bild des neuen Indiz kopieren und
+   bei dem gewÃ¼nschten Datensatz einfÃ¼gen. Nun kÃ¶nnen Sie den "Dummy" wieder entfernen und das Bild wurde im System
+   hinterlegt und mit dem gewÃ¼nschten Datensatz verknÃ¼pft.
